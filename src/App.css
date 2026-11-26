@@ -107,3 +107,173 @@ body {
     font-size: 25px;
   }
 }
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 16px;
+}
+
+/* Container - laptop max, phone full */
+.weather-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Search - flex so it never breaks */
+.search-box {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 10px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  outline: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 16px;
+  background: white;
+  color: #333;
+  min-width: 0; /* stops phone from overflowing */
+}
+
+.search-box button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 0 50px 50px 0;
+  background: linear-gradient(90deg, #ff9a00, #ff6a00);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.search-box button:hover {
+  opacity: 0.9;
+}
+
+.weather-container > h3 {
+  text-align: center;
+  margin: 22px 0 15px;
+  font-size: clamp(20px, 4vw, 28px);
+  text-transform: capitalize;
+}
+
+/* CARDS - auto responsive */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 25px 10px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 13px;
+  color: #ffd89b;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card p {
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: bold;
+}
+
+/* CHARTS - auto responsive */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.chart-box {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  min-width: 0;
+}
+
+.chart-box h3 {
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* ============ TABLET ============ */
+@media (max-width: 850px) {
+  .charts {
+    grid-template-columns: 1fr; /* charts stack */
+  }
+  .chart-box {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* ============ PHONE ============ */
+@media (max-width: 550px) {
+  body {
+    padding: 10px;
+  }
+
+  .search-box input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .search-box button {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr; /* cards stack */
+  }
+
+  .card {
+    padding: 18px 10px;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-box {
+    padding: 15px 10px;
+  }
+}

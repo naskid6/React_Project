@@ -8,7 +8,12 @@ function App(){
   }
 
   function handleEqual(){
-    setInput(String(evaluate(Input)))
+    try {
+      
+      setInput(String(evaluate(Input)))
+    } catch (error) {
+      setInput(error)
+    }
   }
   function handleClear(){
     setInput('')
